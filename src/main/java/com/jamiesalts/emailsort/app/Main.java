@@ -10,7 +10,7 @@ public class Main {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[] {"services.xml"});
 		try{
 			Application app = (Application)context.getBean("application");
-			app.start(args);
+			app.sortEmails(args);
 		}finally{
 			context.close();
 		}

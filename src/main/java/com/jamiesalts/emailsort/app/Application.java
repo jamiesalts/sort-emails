@@ -1,6 +1,5 @@
 package com.jamiesalts.emailsort.app;
 
-import java.awt.datatransfer.StringSelection;
 import java.io.FileNotFoundException;
 import java.util.Comparator;
 import java.util.List;
@@ -17,7 +16,7 @@ public class Application {
 	@Autowired
 	private EmailFileParser emailFileParser;
 	
-	public void start(String[] args) throws FileNotFoundException{
+	public List<EmailAddress> sortEmails(String[] args) throws FileNotFoundException{
 		String filePath = args[0];
 		List<EmailAddress> emails = emailFileParser.getEmails(filePath);
 		
@@ -50,5 +49,6 @@ public class Application {
 			.filter(e -> e.isValid())
 			.forEach(System.out::println);
 		
+		return emails;
 	}
 }
